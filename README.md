@@ -1,4 +1,12 @@
-# Getting Started with Create React App
+# ⚛ Comenzado con React
+
+Este README.md es el que se crea por defecto cuando usamos Create-React-app para generar el set-up de desarrollo de una aplicación React.
+
+Más apuntes en [⚙🍎🌍 e2molin.md](e2molin.md)
+
+---
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
