@@ -36,40 +36,55 @@ git remote add origin https://github.com/e2molin/cartoimages.git
 
 Y luego continuar con el flujo habitual de trabajo
 
+### Despliegue de la App en Github
 
+```bash
+npm i gh-pages
+```
 
+Después añadimos algunas líneas a nuestro *package.json*. Una es la propiedad *homepage* que contiene la ruta que tendrá nuestra aplicación desplegada. Se compone del subdominio de nombre nuestro usuario, con el dominio github.io, seguido del nombre del proyecto, como se ve en el ejemplo.
 
+```json
+{
+  "name": "cartoimg",
+  "version": "0.1.0",
+  "private": true,
+  "homepage":"https://e2molin.github.io/cartoimages",
+  "dependencies": {
+```
 
+Después, entre las lista de scripts, añadimos dos, *predeploy* y *deploy*, con comandos de *gh-pages* para hacerlo.
 
+```json
+  "scripts": {
+    "predeploy":"npm run build",    // Este es opcional, ya que es un build mondo y lirondo
+    "deploy":"gh-pages -d build",   // Este es el que sube el contenido de la carpeta a github.io
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+```
+
+## Recursos y consejos de desarrollo
 
 Es mejor usar promesas que una librería tipo Axios para llamadas AJAX. Si vamos a trabajar on navegadores que no soporten promnesas fetch/then, podemos usar un polyfill de fetch como unfetch , [https://github.com/developit/unfetch](https://github.com/developit/unfetch)
 
-Para trabajar con router se recomienda Wouter
+Para trabajar con *routing* se recomienda **Wouter**.
 [https://github.com/molefrog/wouter](https://github.com/molefrog/wouter)
+
 ```bash
 npm install wouter
 ```
 Más sencillo que React-Router
 
-
-
-
-
-
-
-
-
-
-
-
-
 ## NEXT.JS
 
 Framework para crear aplicaciones en REACT.JS
-https://www.youtube.com/watch?v=EEDRcolSHms&list=RDCMUC8LeXCWOalN8SxlrPcG-PaQ&start_radio=1&t=63
-https://www.youtube.com/watch?v=EEDRcolSHms&list=RDCMUC8LeXCWOalN8SxlrPcG-PaQ&start_radio=1&t=63
 
+📽 [https://www.youtube.com/watch?v=EEDRcolSHms&list=RDCMUC8LeXCWOalN8SxlrPcG-PaQ&start_radio=1&t=63](https://www.youtube.com/watch?v=EEDRcolSHms&list=RDCMUC8LeXCWOalN8SxlrPcG-PaQ&start_radio=1&t=63)
 
 ## Recursos
 
-Ramdom Avatar: Genera usuarios aleatorios para trabajar. [https://randomuser.me/](https://randomuser.me/)
+* **Ramdom Avatar**: Genera usuarios aleatorios para trabajar. [https://randomuser.me/](https://randomuser.me/)
+* **Unplush**: imágenes libres para testear código [unsplash.com/](https://unsplash.com/)
