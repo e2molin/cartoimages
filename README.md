@@ -2,7 +2,7 @@
 
 Este README.md es el que se crea por defecto cuando usamos Create-React-app para generar el set-up de desarrollo de una aplicación React.
 
-Más apuntes en [⚙🍎🌍 e2molin.md](e2molin.md)
+Más apuntes en [⚙🍎🌍 e2molin.md](docus/e2molin.md)
 
 ---
 

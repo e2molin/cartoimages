@@ -65,6 +65,11 @@ Después, entre las lista de scripts, añadimos dos, *predeploy* y *deploy*, con
     "eject": "react-scripts eject"
   },
 ```
+En nuestro repositorio, vamos a settings y configuramos este despliegue
+
+![](img/ghpages-config.jpg)
+
+
 
 ## Recursos y consejos de desarrollo
 
