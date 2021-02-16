@@ -2,6 +2,20 @@
 
 https://es.reactjs.org/
 
+## Instalación
+
+Clonar el repositorio de GitHub. 
+
+```bash
+git clone https://github.com/e2molin/cartoimages.git
+```
+
+Después acceder a la carpeta del proyecto y ejecutar NPM para bajar los paquetes de desarrollo.
+
+```bash
+npm install
+```
+
 ## Clase 0 y 1
 
 
