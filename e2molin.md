@@ -28,6 +28,14 @@ npx create-react-app
 
 Create React App configura tu set-up de desarrollo. Como gestor de paquetes propone el uso de **Yarn**, que es el NPM de Facebook. Pero podemos utilizar el propio NPM. En nuestro set-up de desarrollo también hay un control de versiones GIT. Si el proyecto lo vamos a utilizar en varios equipos, es interesante subirlo a github.
 
+Para ello, después de crear el repositorio en GitHub, podemos configurar el repositorio remote en nuestro GIT local
+
+```bash
+git remote add origin https://github.com/e2molin/cartoimages.git
+```
+
+Y luego continuar con el flujo habitual de trabajo
+
 
 
 
