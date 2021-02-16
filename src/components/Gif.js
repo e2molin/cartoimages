@@ -1,3 +1,6 @@
+/**
+ * 🧩 Componente para generar las cards con las imágenes  * 
+ */
 import React from 'react'
 import './Gif.css'
 

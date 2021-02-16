@@ -5,7 +5,6 @@ import ListOfGifs  from './components/ListOfGifs'
 
 import {Link, Route} from "wouter"
 
-
 function App() {
 
 

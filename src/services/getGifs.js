@@ -1,5 +1,6 @@
-const apiKey = 'IjmmViOE2rq5nh9jplq6JWU32Dcak2Ju';
+//Accede a imágenes de GiPHY. La cuenta de acceso es gratuita y te proporcionan un APIKEY
 
+const apiKey = 'IjmmViOE2rq5nh9jplq6JWU32Dcak2Ju';
 
 export default function getGifs({keyword = 'rembrandt'}={}){
 
@@ -20,5 +21,4 @@ export default function getGifs({keyword = 'rembrandt'}={}){
       return gifs
     }
   })
-
 }

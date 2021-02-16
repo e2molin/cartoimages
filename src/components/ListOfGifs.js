@@ -1,3 +1,6 @@
+/**
+ * 🧩 Componente para generar un listado de imágenes maquetdas en cards
+ */
 import React, {useEffect, useState} from 'react';
 import Gif  from './Gif'
 import getGifs from '../services/getGifs'
