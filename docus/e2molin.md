@@ -25,6 +25,8 @@ npm install
 
 * Se basa en componentes reutilizables.
 
+* JSX es una extensión de la sintaxis de JavaScript. Se recomuenda usarlo con React para describir cómo debería ser la interfaz de usuario. JSX puede recordarte a un lenguaje de plantillas, pero viene con todo el poder de JavaScript.
+
 
 ## Clase: Crea una app con React usando create-react-app
 
@@ -49,6 +51,16 @@ git remote add origin https://github.com/e2molin/cartoimages.git
 ```
 
 Y luego continuar con el flujo habitual de trabajo
+
+## Clase 2
+
+### Custom Hooks
+
+Nos permiten usar snippets de códigos en varios sitios
+
+
+
+
 
 ### Despliegue de la App en Github
 

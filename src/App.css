@@ -13,6 +13,17 @@
   color: white;
 }
 
+
+.App-content li {
+  color: #eee;
+  text-decoration: none;
+}
+
+.App-content li>a {
+  color: #eee;
+  text-decoration: none;
+}
+
 .menu {
   display: flex;
   flex-direction: column;
@@ -21,4 +32,9 @@
 .menu a{
   color:#eee;
   text-decoration: none;
+}
+
+.logo {
+  width: 96px;
+  padding: 15px;
 }
