@@ -15,7 +15,7 @@ export default function App() {
         <section className="App-content">
           <Link to="/">
             <figure className="App-logo">
-              <img alt='Giffy logo' src='/logo.png' />
+              <img alt='Giffy logo' src='http://www.develmap.com/img/logo.png' />
             </figure>
           </Link>
           {/* Menú original */}{/* Así se comenta dentro del bloque de representación donde usamos JSX */}

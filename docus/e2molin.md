@@ -61,6 +61,17 @@ Nos permiten usar snippets de códigos en varios sitios
 
 
 
+## Recursos y consejos de desarrollo
+
+### Clonación del Proyecto
+
+El proyecto está en Github con el archivo de dependencias *package.json* pero sin los *node_modules*, que se evitan gracias al archivo *.gitignore*. Una vez clonado el repositorio, para que funcione es necesario ejecutar un *npm install* para que se descargue todos los paquetes de node necesarios.
+
+```bash
+git clone https://github.com/e2molin/cartoimages.git
+npm install
+```
+
 
 ### Despliegue de la App en Github
 
@@ -72,12 +83,14 @@ Después añadimos algunas líneas a nuestro *package.json*. Una es la propiedad
 
 ```json
 {
-  "name": "cartoimg",
+  "name": "cartoimages",
   "version": "0.1.0",
   "private": true,
   "homepage":"https://e2molin.github.io/cartoimages",
   "dependencies": {
 ```
+
+Ojo 💣, cuando se establece la propiedad *homepage*, al ejecutar un *npm run start*, la aplicación no se carga en http://localhost:3000, sino en http://localhost:3000/cartoimages. Esto me ha vuelto loco del todo.
 
 Después, entre las lista de scripts, añadimos dos, *predeploy* y *deploy*, con comandos de *gh-pages* para hacerlo.
 
@@ -97,7 +110,7 @@ En nuestro repositorio, vamos a settings y configuramos este despliegue
 
 
 
-## Recursos y consejos de desarrollo
+
 
 Es mejor usar promesas que una librería tipo Axios para llamadas AJAX. Si vamos a trabajar on navegadores que no soporten promnesas fetch/then, podemos usar un polyfill de fetch como unfetch , [https://github.com/developit/unfetch](https://github.com/developit/unfetch)
 
