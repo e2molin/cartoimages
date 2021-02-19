@@ -1,26 +1,45 @@
-import {useEffect,useState} from 'react'
+import {useContext, useEffect, useState} from 'react'
 import getGifs from '../services/getGifs'
+import GifsContext from '../context/GifsContext'
 
-export function useGifs({keyword} = {keyword: null}){
+const INITIAL_PAGE = 0
 
-  const [loading,setLoading] = useState(false);
-  const [gifs, setGifs] = useState([])
+// Así se pasa un parámetro opcional
+export function useGifs ({ keyword } = { keyword: null }) {
+  const [loading, setLoading] = useState(false)
+  const [loadingNextPage, setLoadingNextPage] = useState(false)
 
-  //const keywordToUse = keyword ? keyword : localStorage.getItem('lastKeyword') //La de abajo es Equivalente
+  const [page, setPage] = useState(INITIAL_PAGE)
+  const {gifs, setGifs} = useContext(GifsContext)
 
-  const keywordToUse = keyword || localStorage.getItem('lastKeyword')
+  // Recuperamos la keyword del localStorage
+  const keywordToUse = keyword || localStorage.getItem('lastKeyword') || 'random'
+    //const keywordToUse = keyword ? keyword : localStorage.getItem('lastKeyword') //👆 Equivalente
 
-  //Esta función se ejecuta cada vez que se renderiza el componente
-  useEffect(function(){
-              setLoading(true)
-              getGifs({ keyword: keywordToUse})
-                .then(gifs =>{
-                  setGifs(gifs)
-                  setLoading(false)
-                  localStorage.setItem('lastKeyword',keyword) //Almacenamos la última búsqueda
-              })
-  },[keyword])//Pero aquí le decimos que se ejecute sólo cuando se renderice el componente y cambie el valor de keyword
 
-  return {loading,gifs}
+    // Esta función se ejecuta cada vez que se renderiza el componente
+  useEffect(function () {
+    setLoading(true)
 
+    getGifs({ keyword: keywordToUse })
+      .then(gifs => {
+        setGifs(gifs)
+        setLoading(false)
+        localStorage.setItem('lastKeyword', keyword) // Almacenamos la última búsqueda
+      })
+  }, [keyword, keywordToUse, setGifs]) // Pero aquí le decimos que se ejecute sólo cuando se renderice el componente y cambie el valor de keyword
+
+  useEffect(function () {
+    if (page === INITIAL_PAGE) return
+
+    setLoadingNextPage(true)
+
+    getGifs({ keyword: keywordToUse, page })
+      .then(nextGifs => {
+        setGifs(prevGifs => prevGifs.concat(nextGifs))
+        setLoadingNextPage(false)
+      })
+  }, [keywordToUse, page, setGifs])
+
+  return {loading, loadingNextPage, gifs, setPage}
 }

@@ -1,52 +1,42 @@
-import React,{useState} from "react"
-import {Link, useLocation} from "wouter" //useLocation es un hook de wouter
-import Spinner from '../../components/Spinner'
-import ListOfGifs from '../../components/ListOfGifs'
-import {useGifs} from '../../hooks/useGifs'
-
-const POPULAR_SEARCHES = ["Paris", "Madrid", "Roma", "London", "New York"]
+import React, {useState} from "react"
+import { useLocation } from "wouter" // useLocation es un hook de wouter
+import ListOfGifs from 'components/ListOfGifs'
+import {useGifs} from 'hooks/useGifs'
+import TrendingSearches from 'components/TrendingSearches'
 
 export default function Home() {
+  const [keyword, setKeyword] = useState('')
+  const [path, pushLocation] = useLocation()
 
-  const [keyword,setKeyword] = useState('')
-  const [path,pushLocation] = useLocation() 
-
-  //Aquí usamos un custom hook para mostrar algunos por defecto
-  const {loading,gifs} = useGifs()
+  const {loading, gifs} = useGifs() // Aquí usamos un custom hook para mostrar algunos por defecto
 
 
-  //Extraemos los métodos de callback en constantes por limpieza de código. Dejarlos dentro del JSX es más lioso
-  const handleSubmit = evt =>{
-    //Navegar a otra ruta
-    evt.preventDefault() //Así evitamos el comportamiento por defecto de la página, que sería refrescarse y borrar el contenido del imputbox
-    pushLocation(`/search/${keyword}`) //usamos el hook de Wouter para navegar programáticamente a la ruta de búsquedas
-    console.log(keyword);
+    // Extraemos los métodos de callback en constantes por limpieza de código. Dejarlos dentro del JSX es más lioso
+  const handleSubmit = evt => {
+    evt.preventDefault()  // Así evitamos el comportamiento por defecto de la página, que sería refrescarse y borrar el contenido del imputbox
+    pushLocation(`/search/${keyword}`)  //usamos el hook de Wouter para navegar programáticamente a la ruta de búsquedas
   }
-  const handleChange = evt =>{
+
+  const handleChange = evt => {
     // Cada vez que actualizamos el contenido del input actualizamos el keyword
-    setKeyword(evt.target.value);
+    setKeyword(evt.target.value)
   }
 
   return (
     <>
-      <h3 className="App-Title">Buscador</h3>
       <form onSubmit={handleSubmit}>
-        <input type="text" value={keyword} onChange={handleChange} placeholder="Introduce GIF a buscar"></input>
+        <button>Buscar</button>
+        <input placeholder="Search a gif here..." onChange={handleChange} type='text' value={keyword} />
       </form>
-      <h3 className="App-Title">Los Gifs más populares</h3>
-      <ul>
-          {
-            POPULAR_SEARCHES.map((popularTerm)=>(
-              <li key={popularTerm}>
-                <Link to={`/search/${popularTerm}`}>Gifs de {popularTerm}</Link>
-              </li>
-            ))
-          }
-      </ul>
-
-      {loading ? <Spinner/> : <ListOfGifs gifs={gifs} />}
-
+      <div className="App-main">
+        <div className="App-results">
+          <h3 className="App-title">Última búsqueda</h3>
+          <ListOfGifs gifs={gifs} />
+        </div>
+        <div className="App-category">
+          <TrendingSearches />
+        </div>
+      </div>
     </>
   )
-
 }

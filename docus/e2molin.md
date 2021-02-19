@@ -1,5 +1,5 @@
 # REACT
-
+https://infopeli.web.app/ Genial https://github.com/AlexandroMunera/React-InfoPeli
 https://es.reactjs.org/
 
 ## Instalación
@@ -108,6 +108,38 @@ Para trabajar con *routing* se recomienda **Wouter**.
 npm install wouter
 ```
 Más sencillo que React-Router
+
+
+### Descargar un branch remoto cuando usamos GIT
+
+Del proyecto de trabajo del curso, me interesa descargar un branch dremoto que coincide con el comienzo del vídeo 3. Para ello lo mrimero es clonarme el proyecto entero en ele equipo.
+
+```bash
+#Clonamos el repositorio
+git clone https://github.com/midudev/react-live-coding.git
+# Listamos las ramas, y veremos todas las remotas y las locales
+git branch -a
+```
+En la imagen comprobamos que las rojas son las remotas, todas con el prefijo *remotes*, y en local sólo tenemos la *master* para trabajar, que es lo que hay en el directorio de trabajo por defecto cuando clonamos un proyecto la primera vez.
+
+![](img/screen-git-branch1.jpg)
+
+Continuamos. Ahora vamos a crear en local una rama con el mismo nombre que la rama remota que queremos bajar, nos cambiaremos a esa rama y bajaremos el código del remoto correspondiente a esa rama. La rama que quremos se llama *lazy-load-suspense-pagination*.
+
+```bash
+# Creamos la tama en local con el mismo nombre y nos cambiamos a la rama
+git checkout -b lazy-load-suspense-pagination origin/lazy-load-suspense-pagination
+# Listamos para comprobar que se ha creado
+git branch -a
+# Bajamos el código romoto correspondiente a esa rama
+git pull origin lazy-load-suspense-pagination
+```
+En la imagen se ve cómo despues del comando checkout, hemos creado una rama y nos hemos movido a ella, está en color verde.
+
+![](img/screen-git-branch2.jpg)
+
+Después de este proceso ya podemos trabajar con los ficheros de la rama remota
+
 
 ## NEXT.JS
 
