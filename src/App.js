@@ -9,7 +9,7 @@ import { Link, Route } from "wouter"
 
 export default function App() {
   return (
-  <StaticContext.Provider value={{name: 'midudev',  suscribeteAlCanal: true}}>
+  <StaticContext.Provider value={{name: 'e2molin',  suscribeteAlCanal: true}}>
       {/* El contexto envuelve a todo para que todos los elementos y componentes dentro del contexto puedan acceder a él */}
       <div className="App">
         <section className="App-content">
