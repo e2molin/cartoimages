@@ -1,22 +1,26 @@
 {
   "files": {
-    "main.css": "/cartoimages/static/css/main.42c97f71.chunk.css",
-    "main.js": "/cartoimages/static/js/main.098af68b.chunk.js",
-    "main.js.map": "/cartoimages/static/js/main.098af68b.chunk.js.map",
-    "runtime-main.js": "/cartoimages/static/js/runtime-main.ffc57207.js",
-    "runtime-main.js.map": "/cartoimages/static/js/runtime-main.ffc57207.js.map",
-    "static/js/2.d6461b88.chunk.js": "/cartoimages/static/js/2.d6461b88.chunk.js",
-    "static/js/2.d6461b88.chunk.js.map": "/cartoimages/static/js/2.d6461b88.chunk.js.map",
-    "static/js/3.151afd4b.chunk.js": "/cartoimages/static/js/3.151afd4b.chunk.js",
-    "static/js/3.151afd4b.chunk.js.map": "/cartoimages/static/js/3.151afd4b.chunk.js.map",
+    "main.css": "/cartoimages/static/css/main.30834993.chunk.css",
+    "main.js": "/cartoimages/static/js/main.d94e56a4.chunk.js",
+    "main.js.map": "/cartoimages/static/js/main.d94e56a4.chunk.js.map",
+    "runtime-main.js": "/cartoimages/static/js/runtime-main.77654c04.js",
+    "runtime-main.js.map": "/cartoimages/static/js/runtime-main.77654c04.js.map",
+    "static/js/2.12f88666.chunk.js": "/cartoimages/static/js/2.12f88666.chunk.js",
+    "static/js/2.12f88666.chunk.js.map": "/cartoimages/static/js/2.12f88666.chunk.js.map",
+    "static/css/3.e26ee613.chunk.css": "/cartoimages/static/css/3.e26ee613.chunk.css",
+    "static/js/3.ba99501b.chunk.js": "/cartoimages/static/js/3.ba99501b.chunk.js",
+    "static/js/3.ba99501b.chunk.js.map": "/cartoimages/static/js/3.ba99501b.chunk.js.map",
+    "static/js/4.5440cee8.chunk.js": "/cartoimages/static/js/4.5440cee8.chunk.js",
+    "static/js/4.5440cee8.chunk.js.map": "/cartoimages/static/js/4.5440cee8.chunk.js.map",
     "index.html": "/cartoimages/index.html",
-    "static/css/main.42c97f71.chunk.css.map": "/cartoimages/static/css/main.42c97f71.chunk.css.map",
-    "static/js/2.d6461b88.chunk.js.LICENSE.txt": "/cartoimages/static/js/2.d6461b88.chunk.js.LICENSE.txt"
+    "static/css/3.e26ee613.chunk.css.map": "/cartoimages/static/css/3.e26ee613.chunk.css.map",
+    "static/css/main.30834993.chunk.css.map": "/cartoimages/static/css/main.30834993.chunk.css.map",
+    "static/js/2.12f88666.chunk.js.LICENSE.txt": "/cartoimages/static/js/2.12f88666.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.ffc57207.js",
-    "static/js/2.d6461b88.chunk.js",
-    "static/css/main.42c97f71.chunk.css",
-    "static/js/main.098af68b.chunk.js"
+    "static/js/runtime-main.77654c04.js",
+    "static/js/2.12f88666.chunk.js",
+    "static/css/main.30834993.chunk.css",
+    "static/js/main.d94e56a4.chunk.js"
   ]
 }
