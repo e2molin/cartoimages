@@ -7,7 +7,7 @@ export default function SearchResults ({ params }) {
   const { keyword } = params
   const { loading, gifs, setPage } = useGifs({ keyword }) //Así usamos el custom hook que hemos hecho
 
-  const handleNextPage = () => setPage(prevPage => prevPage + 1)
+  const handleNextPage = () => setPage(prevPage => prevPage + 1)//e2m.Go Next Page
 
   return <>
       {/**
@@ -20,6 +20,7 @@ export default function SearchResults ({ params }) {
           {decodeURI(keyword)}
         </h3>
         <ListOfGifs gifs={gifs} />
+
       </>
     }
     <br />

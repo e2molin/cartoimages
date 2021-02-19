@@ -3,6 +3,7 @@ import { useLocation } from "wouter" // useLocation es un hook de wouter
 import ListOfGifs from 'components/ListOfGifs'
 import {useGifs} from 'hooks/useGifs'
 import TrendingSearches from 'components/TrendingSearches'
+import Category from "components/Category"
 
 export default function Home() {
   const [keyword, setKeyword] = useState('')
@@ -35,6 +36,11 @@ export default function Home() {
         </div>
         <div className="App-category">
           <TrendingSearches />
+          
+          <Category
+            name="España"
+            options={["Madrid", "Barcelona","Sevilla", "Toledo"]}
+          />
         </div>
       </div>
     </>

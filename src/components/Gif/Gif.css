@@ -8,6 +8,8 @@
   text-decoration: none;
   position: relative;
   width: 100%;
+  max-height: 200px;/* Así los elementos son más homogéneos, aunque perdemos información de la imagen*/
+  overflow: hidden;
 }
 
 .Gif h4 {

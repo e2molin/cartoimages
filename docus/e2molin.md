@@ -59,6 +59,23 @@ Y luego continuar con el flujo habitual de trabajo
 Nos permiten usar snippets de códigos en varios sitios
 
 
+## Clase 3
+
+### Composición de rutas para acceder a controles, servicios y hooks
+
+A la hora de poner las rutas de los componnetes, es un poco tediosos ir navegando con rutas del estilo **'../../components/ListaGifs'** tomando como referecia el directorio *root*. Se puede definir una URL base a partir de la cual se componen las rutas usando un fichero de configuración **jsconfig.json**, de manera que la nueva ruta sea **'components/ListaGifs'**.
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": "src"
+  }
+}
+```
+
+### intersection-observer
+
+Nos permite detectar cuando un elelemnto está en el viewport, por lo tanto se muyestra al usuario, y en ese momento se puede lanzar alguna acción como cargar un servicio.
 
 
 ## Recursos y consejos de desarrollo
