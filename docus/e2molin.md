@@ -54,9 +54,89 @@ Y luego continuar con el flujo habitual de trabajo
 
 ## Clase 2
 
-### Custom Hooks
+### Concepto del *useState* y *useEffect*
 
-Nos permiten usar snippets de códigos en varios sitios
+El hook *useState* es uno de los más conocidos de React. Nos permite definir una propiedad y el modo en el que cambia. En el siguiente snippet vemos cómo tenemos dos variables, GIFS y DIFFERENT_GIFS, y queremos que al pulsar un botón cambien, de manera que nuestra App pase de renderizar los tres primeros a renderizar los tres últimos.
+
+```javascript
+import React, {useEffect,useState} from 'react';
+import './App.css'
+
+const GIFS=['https://media3.giphy.com/media/rj12FejFUysTK/giphy.gif',
+            'https://i.giphy.com/media/13kajTax0GCg0g/giphy.webp',
+            'https://i.giphy.com/media/8lJwA6kNkKyfC/giphy.webp',
+            ];
+
+const DIFFERENT_GIFS=['https://i.giphy.com/media/j2pWZpr5RlpCodOB0d/giphy.webp',
+                      'https://i.giphy.com/media/3oxHQpJKupQXsmU1JS/giphy.webp',
+                      'https://i.giphy.com/media/6268H2Uc3mAQsLMIe3/giphy.webp',
+                      ];
+
+export default function App() {
+  
+  const [gifs, setGifs] = useState(GIFS);
+
+  useEffect(function() {
+    console.log("Me ejecuto tras renderizar");
+    setGifs(DIFFERENT_GIFS);
+    }, []);
+
+    return (
+    
+    <div className="App">
+      <section className="App-content">
+        {
+          // Por cada string del array generamos una etiqueta <img> y renderizamos una imagen
+          // Usamos un map en vez de un foreach porque el map devuelve algo, el foreach no devuelve nada, luego no renderizaría. El map tiene un return implícito
+          gifs.map(singleGif => <img src={singleGif}/>)
+        }
+        <button onClick={()=>setGifs(DIFFERENT_GIFS)}>Cambiar Gifs</button>
+      </section>
+    </div>
+    )
+  }
+```
+
+Pero imaginemos que lo que queremos es que al entrar en el componente, automáticamente cambien las imágenes, sin esperar a que pulsemos el botón. Para ello necesitamos una función que se ejecute cada vez que nuestro componente se renderice. Eso lo conseguimos con otro hook de React, el *useEffect*. El código anterior ejecutará el efecto al arrancar, y si pulso el botón, volverá a hacerlo.
+Pero ojo, si pongo un cam,bio en los GIFS en el interior del efecto, puede provicr un bucle infinito, ya que se renderiza -> cambia GIFs -> renderiza -> cambia GIFs -> renderiza -> Cambia GIFs -> ... Para evitarlo, se reciben dos parámetros. La función que utilizamos y las dependencias que tiene este efecto. Esta lista de dependencias, la ponemos vacía de entrada, lo que hará que el efecto se renderice sólo una vez.
+
+Usando la API de Giphy podemos ver un caso de cómo funciona esto.
+
+```javascript
+
+const apiURL='https://api.giphy.com/v1/gifs/search?api_key=IjmmViOE2rq5nh9jplq6JWU32Dcak2Ju&q=elefante'
+
+export default function App() {
+  //Usamos un Hook
+                        
+  const [gifs, setGifs] = useState(GIFS);
+
+  useEffect(function() {
+    fetch(apiURL)   // Hago llamada a la API
+      .then(res => res.json())  // Recibo respuesta que es una cadena y la convierto a JSON
+      .then(response =>{
+        const {data=[]} = response; // Extraigo del JSON el valor del array data
+        const gifs_downloaded=data.map(image =>image.images.downsized_medium.url); // De cada objeto del array extraigo la ruta de la imagen
+        setGifs(gifs_downloaded); // Actualizo el estado
+      })
+    }, []);
+
+  return (
+      <div className="App">
+        <section className="App-content">
+          {
+            gifs.map(singleGif=><img alt="" src={singleGif}/>)
+          }
+          <button onClick={()=>setGifs(DIFFERENT_GIFS)}>Cambiar Gifs</button>
+        </section>
+      </div>
+  )
+```
+
+
+
+
+
 
 
 ## Clase 3
