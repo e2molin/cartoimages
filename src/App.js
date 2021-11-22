@@ -1,39 +1,51 @@
-import React from 'react';
-import './App.css'
-import Home from './pages/Home'
-import SearchResults from './pages/SearchResults'
-import Detail from './pages/Detail'
-import StaticContext from './context/StaticContext'
-import {GifsContextProvider} from './context/GifsContext'
-import { Link, Route } from "wouter"
+import React, { Suspense } from "react";
+import { Link, Route, Switch } from "wouter";
+
+import Header from "components/Header";
+
+import Register from 'pages/Register'
+import Login from "pages/Login";
+import SearchResults from "pages/SearchResults";
+import Detail from "pages/Detail";
+import ErrorPage from "pages/ErrorPage";
+
+import { UserContextProvider } from "context/UserContext";
+import { GifsContextProvider } from "context/GifsContext";
+
+import "./App.css";
+
+const HomePage = React.lazy(() => import("./pages/Home"));
 
 export default function App() {
   return (
-  <StaticContext.Provider value={{name: 'e2molin',  suscribeteAlCanal: true}}>
+    <UserContextProvider>
       {/* El contexto envuelve a todo para que todos los elementos y componentes dentro del contexto puedan acceder a él */}
       <div className="App">
-        <section className="App-content">
-          <Link to="/">
-            <figure className="App-logo">
-              <img alt='Giffy logo' src='http://www.develmap.com/img/logo.png' />
-            </figure>
-          </Link>
-          {/* Menú original */}{/* Así se comenta dentro del bloque de representación donde usamos JSX */}
-          <GifsContextProvider>
-            <Route
-              component={Home}
-              path="/"
-            />
-            <Route
-              component={SearchResults}
-              path="/search/:keyword"  />
-            <Route
-              component={Detail}
-              path="/gif/:id"
-            />
-          </GifsContextProvider>
-        </section>
+        <Suspense fallback={null}>
+          <section className="App-content">
+            <Header />
+            <Link to="/">
+              <figure className="App-logo">
+                <img alt="Giffy logo" src="/logo.png" />
+              </figure>
+            </Link>
+            {/* Menú original */}{/* Así se comenta dentro del bloque de representación donde usamos JSX */}
+            <GifsContextProvider>
+              <Switch>
+                <Route component={HomePage} path="/" />
+                <Route
+                  component={SearchResults}
+                  path="/search/:keyword/:rating?"
+                />
+                <Route component={Detail} path="/gif/:id" />
+                <Route component={Login} path="/login" />
+                <Route component={Register} path="/register" />
+                <Route component={ErrorPage} path="/:rest*" />
+              </Switch>
+            </GifsContextProvider>
+          </section>
+        </Suspense>
       </div>
-    </StaticContext.Provider>
-  )
+    </UserContextProvider>
+  );
 }

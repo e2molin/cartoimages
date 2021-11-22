@@ -180,4 +180,4 @@ Framework para crear aplicaciones en REACT.JS
 ## Recursos
 
 * **Ramdom Avatar**: Genera usuarios aleatorios para trabajar. [https://randomuser.me/](https://randomuser.me/)
-* **Unplush**: imágenes libres para testear código [unsplash.com/](https://unsplash.com/)
+* **Unplash**: imágenes libres para testear código [unsplash.com/](https://unsplash.com/)

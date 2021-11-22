@@ -4,42 +4,39 @@ import GifsContext from '../context/GifsContext'
 
 const INITIAL_PAGE = 0
 
-// Así se pasa un parámetro opcional
-export function useGifs ({ keyword } = { keyword: null }) {
+export function useGifs ({ keyword, rating } = { keyword: null }) {
   const [loading, setLoading] = useState(false)
   const [loadingNextPage, setLoadingNextPage] = useState(false)
 
   const [page, setPage] = useState(INITIAL_PAGE)
   const {gifs, setGifs} = useContext(GifsContext)
 
-  // Recuperamos la keyword del localStorage
+  // recuperamos la keyword del localStorage
   const keywordToUse = keyword || localStorage.getItem('lastKeyword') || 'random'
-    //const keywordToUse = keyword ? keyword : localStorage.getItem('lastKeyword') //👆 Equivalente
 
-
-    // Esta función se ejecuta cada vez que se renderiza el componente
   useEffect(function () {
     setLoading(true)
 
-    getGifs({ keyword: keywordToUse })
+    getGifs({ keyword: keywordToUse, rating })
       .then(gifs => {
         setGifs(gifs)
         setLoading(false)
-        localStorage.setItem('lastKeyword', keyword) // Almacenamos la última búsqueda
+        // guardamos la keyword en el localStorage
+        localStorage.setItem('lastKeyword', keyword)
       })
-  }, [keyword, keywordToUse, setGifs]) // Pero aquí le decimos que se ejecute sólo cuando se renderice el componente y cambie el valor de keyword
+  }, [keyword, keywordToUse, rating, setGifs])
 
   useEffect(function () {
     if (page === INITIAL_PAGE) return
 
     setLoadingNextPage(true)
 
-    getGifs({ keyword: keywordToUse, page })
+    getGifs({ keyword: keywordToUse, page, rating })
       .then(nextGifs => {
         setGifs(prevGifs => prevGifs.concat(nextGifs))
         setLoadingNextPage(false)
       })
-  }, [keywordToUse, page, setGifs])
+  }, [keywordToUse, page, rating, setGifs])
 
   return {loading, loadingNextPage, gifs, setPage}
 }
