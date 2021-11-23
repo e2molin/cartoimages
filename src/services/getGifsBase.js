@@ -1,5 +1,6 @@
-import {API_KEY, API_URL} from './settings'
-
+import {API_KEY, API_URL} from './settings';
+import Gif from 'components/Gif';
+import getGifs from 'services/getGifs';
 
 // Ponemos un valor por defecto. Si no llega nada el valor que tomará sera {}, y por defecto buscará elephant
 export default function getGifsBase ({keyword = 'elephant'} = {}) {

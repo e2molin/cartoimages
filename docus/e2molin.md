@@ -134,7 +134,16 @@ export default function App() {
 ```
 
 
+### Creando Componentes
 
+En react se tiende contantemente a crear componentes. Componetizar el código es la mejor manera de posteriormente mantenerlo de manera cómoda, y a la vez tener contenido reutilizable.
+
+
+### La librería wouter
+
+En React es muy utilizado el recurso de el routing. POodemos conseguir que la App se comporte de una u otr manera, utilizando la URL para lanzar componentes paramnetrizados. Si tenemos un componente que hace una búsqueda pasándole el parámetro del criterio, podemos crear una ruta del estilo http://localhost/search/param que al escribirse se cargue el componente *search* pasándole el parámetro *param*.
+
+Podemos usar los redirects de react, aunque la librería wouter nos puede ayudar a hacer lo mismo pero es mucho más ligera. Utiliza componentes <Router> para definir los comportamientos y componentes <Link> para introducir los enlaces, al modo de hipervínculos <a>, pero con la diferencia de que no recargan toda la página y sólo renderizan el componente.
 
 
 
